@@ -36,6 +36,10 @@ def create_app(test_config=None):
         name = request.cookies.get('user_username')
         print(name)
         return render_template('test.html')
+    
+    @app.route('/idk')
+    def idk():
+        return 'hey hoi!'
 
     @app.route('/main')
     def main():
