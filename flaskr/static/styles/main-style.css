@@ -1,0 +1,289 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../images/corendon_boeing-737_background-1-opacity1.jpg');
+    background-size: cover;
+    z-index: -1;
+    background-attachment: fixed;
+}
+
+nav.desk,
+nav.mob {
+    width: 100%;
+    background: red ;
+    height: 60px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.container{
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#logoimg{
+    width: auto;
+    height: 60px;
+    position: fixed;
+    padding-left: 40px;
+    display: block;
+}
+
+#logoimgmob{
+    width: auto;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+nav.desk ul ul{
+    list-style: none;
+    width: 75%;
+    height: 60px;
+    margin: 0 auto;
+    float: right;
+}
+
+nav.desk ul li{
+    width: 20%;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+nav ul li:hover{
+    background:#d4bf00;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+nav.mob,
+.hamburger-btn{
+    display: none;
+}
+
+#header {
+    float: center;
+}
+
+.card {
+    color: blue;
+}
+
+.maincontainer{
+    height: 2000;
+    width: 1920;
+    width: 100%;
+}
+
+.aboutuscontainer {
+    background-color: #222529;
+    width: 1200px;
+    height: 1125px;
+    float: center;
+    margin-top: 50px;
+    border-style: solid;
+    border-color: #222529;
+    border-width: thin;
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.97;
+}
+
+.aboutuscard{
+    height: 400px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.aboutuscontent h1{
+    color: red;
+    text-align: center;
+    opacity: 1;
+}
+.aboutuscontent h2{
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    opacity: 1;
+}
+
+.aboutuscontent h3{
+    color: white;
+    font-weight: lighter;
+    font-size: medium;
+    opacity: 1;
+}
+
+.homecontainer {
+    background-color: #222529;
+    width: 1000px;
+    height: 600px;
+    float: center;
+    margin-top: 50px;
+    border-style: solid;
+    border-color: #222529;
+    border-width: thin;
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+}
+
+.homecard{
+    height: 400px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.homecontent h1{
+    color: red;
+    text-align: center;
+    opacity: 1;
+    font-size: 350%;
+}
+
+.homecontent h2{
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 250%;
+}
+
+#centertermsofuse{
+    font-size: 150%;
+    margin-top: 50px;
+    text-align: center;
+    padding: 30px;
+}
+
+
+/* Veranderd de plek van de Login button op de home page*/
+/* Deze Button stuurt je naar de login pagina*/
+#centerbutton{
+    text-align: center;
+    margin-top: auto;
+}
+
+.homecontent h3{
+    color: white;
+}
+
+.homecontent h4{
+    color: white;
+
+
+}
+
+@media screen and (max-width: 700px){
+    nav.desk{
+        display: none;
+    }
+
+    nav.mob,
+    .hamburger-btn{
+        display: block;
+    }
+
+    .hamburger-btn{
+        position: relative;
+    }
+
+    .hamburger-btn .fa-bars,
+    .hamburger-btn .fa-times{
+        position: fixed;
+        right: 25px;
+        top: 15px;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .mob ul {
+        margin-top: -6px;
+        background: red;
+        display: none;
+        list-style: none;
+    }
+
+    .mob li{
+        text-transform: uppercase;
+        text-align: center;
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    .mob ul.active{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 850px){
+    #logoimg{
+        display: none;
+    }
+
+    nav.desk ul ul{
+        list-style: none;
+        width: 75%;
+        height: 60px;
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 1350px){
+    .aboutuscontainer {
+        width: 1000px;
+        height: 1210px;
+    }
+
+    .homecontainer{
+        width: 750px;
+
+
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .aboutuscontainer{
+        width: 700px;
+        height: 1375px;
+    }
+
+}
+
+@media screen and (max-width: 850px){
+    .aboutuscontainer{
+        width: 500px;
+        height: 1675px;
+    }
+    .homecontainer{
+        width: 475px;
+        height: 655px;
+
+    }
+}
+
+@media screen and (max-width: 600px){
+    .aboutuscontainer{
+        width: 450px;
+        height: 1775px;
+    }
+}
