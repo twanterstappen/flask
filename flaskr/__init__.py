@@ -29,9 +29,9 @@ def create_app(test_config=None):
     def main():
         return render_template('base.html')
 
-    @app.route('/aboutus')
+    @app.route('/about-us')
     def aboutus():
-        return render_template('aboutus.html')
+        return render_template('about-us.html')
 
     @app.route('/test')
     def test():
