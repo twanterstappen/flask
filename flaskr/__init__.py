@@ -33,6 +33,10 @@ def create_app(test_config=None):
     def aboutus():
         return render_template('about-us.html')
 
+    @app.route('/terms-of-use')
+    def termsofuse():
+        return render_template('terms-of-use.html')
+
     @app.route('/test')
     def test():
         if 'name' in session:

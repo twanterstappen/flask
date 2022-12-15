@@ -40,11 +40,6 @@ def login():
 def load_logged_in_user():
     user_id = session.get('user_id')
 
-    # if user_id is None:
-    #     g.usert = 'Hello'
-    # else:
-    #     g.usert = 'CHANGME'
-
 
 @bp.route('/logout')
 def logout():

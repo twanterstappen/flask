@@ -6,7 +6,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url('../images/corendon_boeing-737_background-1-opacity1.jpg');
+    background-image: url(../images/corendon_boeing-737_background-1-opacity1.jpg);
     background-size: cover;
     z-index: -1;
     background-attachment: fixed;
@@ -50,7 +50,7 @@ nav.desk ul ul{
     width: 75%;
     height: 60px;
     margin: 0 auto;
-    float: right;
+    float: right;  
 }
 
 nav.desk ul li{
@@ -60,7 +60,7 @@ nav.desk ul li{
     line-height: 60px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease; 
 }
 
 nav ul li:hover{
@@ -131,10 +131,10 @@ nav.mob,
     opacity: 1;
 }
 
-.homecontainer {
+.termsusecontainer {
     background-color: #222529;
     width: 1000px;
-    height: 600px;
+    height: 630px;
     float: center;
     margin-top: 50px;
     border-style: solid;
@@ -146,49 +146,53 @@ nav.mob,
     opacity: 0.95;
 }
 
-.homecard{
+.termsusecard{
     height: 400px;
     margin-top: 20px;
     padding: 20px;
 }
 
-.homecontent h1{
+.termsusecontent h1{
     color: red;
     text-align: center;
     opacity: 1;
     font-size: 350%;
 }
 
-.homecontent h2{
+.termsusecontent h2{
     color: white;
     text-align: center;
     font-weight: 500;
     font-size: 250%;
 }
 
-#centertermsofuse{
-    font-size: 150%;
-    margin-top: 50px;
-    text-align: center;
-    padding: 30px;
+.termsusecontent h3{
+    color: white;
+    font-weight: bold;
+    font-size: larger;
 }
 
+.termsusecontent h4{
+    color: white;
+    font-weight: 100;
+    font-size: larger;
+}
+
+#checkboxterms{
+    font-size: larger;
+    padding: 10px;
+}
+
+#checkboxterms input{
+    height: 15px;
+    width: 15px;
+}
 
 /* Veranderd de plek van de Login button op de home page*/
 /* Deze Button stuurt je naar de login pagina*/
 #centerbutton{
     text-align: center;
-    margin-top: auto;
-}
-
-.homecontent h3{
-    color: white;
-}
-
-.homecontent h4{
-    color: white;
-
-
+    margin-top: 50px;
 }
 
 @media screen and (max-width: 700px){
@@ -254,10 +258,9 @@ nav.mob,
         height: 1210px;
     }
 
-    .homecontainer{
+    .termsusecontainer{
         width: 750px;
-
-
+        height: 710px;
     }
 }
 
@@ -266,7 +269,6 @@ nav.mob,
         width: 700px;
         height: 1375px;
     }
-
 }
 
 @media screen and (max-width: 850px){
@@ -274,10 +276,10 @@ nav.mob,
         width: 500px;
         height: 1675px;
     }
-    .homecontainer{
-        width: 475px;
-        height: 655px;
 
+    .termsusecontainer{
+        width: 475px;
+        height: 730px; 
     }
 }
 
