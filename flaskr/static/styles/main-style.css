@@ -16,6 +16,7 @@
 
 }
 
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url(../images/corendon_boeing-737_background-1-opacity1.jpg);
@@ -36,7 +37,7 @@ nav.desk,
 
 #logoimg{
     width: auto;
-    height: 50px;
+    height: 60px;
     /*position: fixed;*/
     margin-left: 40px;
     /*display: block;*/
@@ -61,11 +62,10 @@ nav.desk ul li{
     transition: all 0.5s ease; 
 }
 
+
 nav ul li:hover{
     background-color: #d4bf00;
-
 }
-
 
 #header {
     float: center;

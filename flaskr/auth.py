@@ -28,6 +28,8 @@ def login():
 
         # check if something returned
         if entry:
+            ip_addr = request.remote_addr
+
             session['name'] = name
             session['ticketnumber'] = ticketnumber
             return redirect(url_for('test'))
