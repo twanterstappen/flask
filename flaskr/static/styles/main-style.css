@@ -4,6 +4,18 @@
     user-select: none;
 }
 
+.text-uppercase {
+    text-transform: capitalize !important;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav ul li {
+    margin-left: 20px
+    margin-right: 20px;
+
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url(../images/corendon_boeing-737_background-1-opacity1.jpg);
@@ -13,37 +25,23 @@ body{
 }
 
 nav.desk,
-nav.mob {
-    width: 100%;
-    background: red ;
-    height: 60px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
+
 
 .container{
-    padding-top: 60px;
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #logoimg{
     width: auto;
-    height: 60px;
-    position: fixed;
-    padding-left: 40px;
-    display: block;
+    height: 50px;
+    /*position: fixed;*/
+    margin-left: 40px;
+    /*display: block;*/
 }
 
-#logoimgmob{
-    width: auto;
-    height: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
 
 nav.desk ul ul{
     list-style: none;
@@ -64,18 +62,10 @@ nav.desk ul li{
 }
 
 nav ul li:hover{
-    background:#d4bf00;
+    background-color: #d4bf00;
+
 }
 
-nav ul li a{
-    color: #fff;
-    text-decoration: none;
-}
-
-nav.mob,
-.hamburger-btn{
-    display: none;
-}
 
 #header {
     float: center;
@@ -195,48 +185,7 @@ nav.mob,
     margin-top: 50px;
 }
 
-@media screen and (max-width: 700px){
-    nav.desk{
-        display: none;
-    }
 
-    nav.mob,
-    .hamburger-btn{
-        display: block;
-    }
-
-    .hamburger-btn{
-        position: relative;
-    }
-
-    .hamburger-btn .fa-bars,
-    .hamburger-btn .fa-times{
-        position: fixed;
-        right: 25px;
-        top: 15px;
-        font-size: 35px;
-        color: white;
-        cursor: pointer;
-    }
-
-    .mob ul {
-        margin-top: -6px;
-        background: red;
-        display: none;
-        list-style: none;
-    }
-
-    .mob li{
-        text-transform: uppercase;
-        text-align: center;
-        padding: 20px;
-        cursor: pointer;
-    }
-
-    .mob ul.active{
-        display: block;
-    }
-}
 
 @media screen and (max-width: 850px){
     #logoimg{
