@@ -4,19 +4,20 @@
     user-select: none;
 }
 
+/* This is the font and style for text in the nav bar. */
 .text-uppercase {
     text-transform: capitalize !important;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*This leaves margins between the links in the nav bar. */
 .nav ul li {
-    margin-left: 20px
+    margin-left: 20px;
     margin-right: 20px;
-
 }
 
-
+/* This sets the background image and font for all the pages. */
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url(../images/corendon_boeing-737_background-1-opacity1.jpg);
@@ -25,9 +26,7 @@ body{
     background-attachment: fixed;
 }
 
-nav.desk,
-
-
+/* This gives padding for all the pages so that all the content won't touch the edges as much. */
 .container{
     padding-top: 30px;
     padding-bottom: 30px;
@@ -35,44 +34,16 @@ nav.desk,
     padding-right: 30px;
 }
 
+/* This is the style for the corendon logo image in the nav bar */
 #logoimg{
     width: auto;
     height: 60px;
-    /*position: fixed;*/
     margin-left: 40px;
-    /*display: block;*/
 }
 
-
-nav.desk ul ul{
-    list-style: none;
-    width: 75%;
-    height: 60px;
-    margin: 0 auto;
-    float: right;  
-}
-
-nav.desk ul li{
-    width: 20%;
-    float: left;
-    text-align: center;
-    line-height: 60px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.5s ease; 
-}
-
-
+/* This ensures that when you hover on the links in the nav bar that the background of the link attribute will become yellow. */
 nav ul li:hover{
     background-color: #d4bf00;
-}
-
-#header {
-    float: center;
-}
-
-.card {
-    color: blue;
 }
 
 .maincontainer{
@@ -185,7 +156,76 @@ nav ul li:hover{
     margin-top: 50px;
 }
 
+.homecontainer {
+    background-color: #222529;
+    width: 900px;
+    height: 440px;
+    float: center;
+    margin-top: 50px;
+    border-style: solid;
+    border-color: #222529;
+    border-width: thin;
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+}
 
+.homecontent {
+    height: 400px;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.homecontent h1{
+    color: red;
+    font-weight: 600;
+    font-size: 250%;
+}
+
+.homecontent h2{
+    color: white;
+    font-weight: 400;
+}
+
+.homecontent h3{
+    color: white;
+    font-weight: 300;
+    text-align: left;
+}
+
+/* All style for multimedia container*/
+.multimediacontainer{
+    background-color: #222529;
+    width: 1300px;
+    height: 630px;
+    float: center;
+    margin-top: 50px;
+    border-style: solid;
+    border-color: #222529;
+    border-width: thin;
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+}
+
+.multimediacontent{
+    height: 400px;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* style for text thats in the content for the multimedia.html*/
+.multimediacontent h1{
+    color: red;
+}
+
+.multimediacontent h2{
+   color: white;
+}
 
 @media screen and (max-width: 850px){
     #logoimg{
@@ -198,7 +238,6 @@ nav ul li:hover{
         height: 60px;
         margin: 0 auto;
     }
-
 }
 
 @media screen and (max-width: 1350px){
@@ -218,6 +257,10 @@ nav ul li:hover{
         width: 700px;
         height: 1375px;
     }
+
+    .homecontainer{
+        width: 750px;
+    }
 }
 
 @media screen and (max-width: 850px){
@@ -230,11 +273,20 @@ nav ul li:hover{
         width: 475px;
         height: 730px; 
     }
+
+    .homecontainer{
+        width: 550px;
+    }
 }
 
 @media screen and (max-width: 600px){
     .aboutuscontainer{
         width: 450px;
         height: 1775px;
+    }
+
+    .homecontainer{
+        width: 420px;
+        height: 490px;
     }
 }

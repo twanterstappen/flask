@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+      <div class="maincontainer">
+            <div class="homecontainer">
+                  <div class="homecontent">
+                        <h1>Welcome on board {{ g.name }}</h1>
+                        <h2>You now have acces to the internet</h2>
+                        <br>
+                        <h3>Ticketnumber: {{ g.ticketnumber }}</h3>
+                        <h3>Flightnumber: xxxx</h3>
+                        <br>
+                        <div id="centerbutton">
+                              <button class="btn btn-success btn-lg px-5" onclick="document.location='{{ url_for('multimedia') }}'">Go to multimedia</button>
+                          </div>
+                  </div>
+            </div>
+      </div>
+{% endblock %}

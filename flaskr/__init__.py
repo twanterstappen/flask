@@ -4,7 +4,6 @@ from flask import Flask, g, redirect, render_template, session, url_for
 
 from . import auth
 
-
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -26,8 +25,16 @@ def create_app(test_config=None):
 
     # a simple page that says hello
     @app.route('/')
-    def main():
-        return render_template('base.html')
+    def home():
+        if 'name' in session:
+            # Get the username from the session
+            g.name = session['name']
+            g.ticketnumber = session['ticketnumber']
+            # Show the protected page, with the username
+            return render_template('home.html')
+        else:
+            # Show the login page
+            return redirect(url_for('auth.login'))
 
     @app.route('/about-us')
     def aboutus():
@@ -37,20 +44,21 @@ def create_app(test_config=None):
     def termsofuse():
         return render_template('terms-of-use.html')
 
-    @app.route('/test')
-    def test():
+    @app.route('/multimedia')
+    def multimedia():
+        return render_template('multimedia.html')
+
+    #   KIJKEN  OF NODIG IS KAN VERWEIDEREN.
+    @app.route('/welcome')
+    def welcome():
         if 'name' in session:
             # Get the username from the session
             g.name = session['name']
             g.ticketnumber = session['ticketnumber']
             # Show the protected page, with the username
-            return render_template('test.html')
+            return render_template('welcome.html')
         else:
             # Show the login page
             return redirect(url_for('auth.login'))
-
-
-
-
 
     return app

@@ -16,7 +16,7 @@
         <div class="container">
             <nav class="navbar fixed-top navbar-dark navbar-expand-md text-uppercase" style="background-color: red;">
 
-                <a href="{{ url_for('main') }}" class="navbar-brand mb-0 h1">
+                <a href="{{ url_for('home') }}" class="navbar-brand mb-0 h1">
                     <img
                         id="logoimg"
                         class="d-inline-block align-top"
@@ -32,17 +32,21 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item active px-2 m-3 rounded">
-                            <a class="nav-link active" href="{{ url_for('main') }}">Home</a>
-                        </li>
                         {% if 'name' in session %}
-                            <li class="nav-item active px-2 m-3 rounded">
-                                <a class="nav-link active" href="{{ url_for('test') }}">Test</a>
-                            </li>
+                        <li class="nav-item active px-2 m-3 rounded">
+                            <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
+                        </li>
                         {% endif %}
                         <li class="nav-item active px-2 m-3 rounded">
                             <a class="nav-link active" href="{{ url_for('aboutus') }}">About Us</a>
                         </li>
+                        {% if 'name' in session %}
+                        <li class="nav-item active px-2 m-3 rounded">
+                            <a class="nav-link active" href="{{ url_for('multimedia') }}">Multimedia</a>
+                        </li>
+                        {% endif %}
+
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right ms-auto">
                         {% if 'name' in session %}

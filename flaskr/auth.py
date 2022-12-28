@@ -1,5 +1,7 @@
 import mysql.connector
 
+import subprocess
+
 from flask import (
     Blueprint, g, redirect, render_template, request, session, url_for
 )
@@ -28,11 +30,14 @@ def login():
 
         # check if something returned
         if entry:
-            ip_addr = request.remote_addr
-
+            ipaddr = request.remote_addr
             session['name'] = name
             session['ticketnumber'] = ticketnumber
-            return redirect(url_for('test'))
+            try:
+                subprocess.call(["sudo", "ipset", "add", "ip-whitelist", ipaddr])
+            except:
+                return redirect(url_for('home'))
+            return redirect(url_for('home'))
         else:
             session.clear()
     return render_template('login.html')
@@ -46,4 +51,4 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('main'))
+    return redirect(url_for('home'))
