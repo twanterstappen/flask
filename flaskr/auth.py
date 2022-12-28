@@ -17,7 +17,7 @@ def login():
 
         connectie = mysql.connector.connect(
             host="localhost",
-            database="Login",
+            database="Corendon",
             user="user_database",
             password="Welkom123!"
         )
