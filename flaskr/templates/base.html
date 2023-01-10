@@ -1,28 +1,37 @@
+<!-- Base template used in all the pages. -->
 <!doctype html>
+
 <html>
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <!-- Link to stylesheet used for everypage. -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main-style.css') }}"/>
 
-
     <head>
+        <!-- Title that will change on every page. -->
         <title>Corendon - {% block title %}Home{% endblock %}</title>
+
+        <!-- Favicon for the page. -->
         <link rel="icon" href="{{ url_for('static', filename='images/corendon_favicon.png') }}">
+        <!-- Link to style for the base template. -->
         <link href="{{ url_for('static', filename='styles/bootstrap.min.css') }}" rel="stylesheet">
         <script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
-
         <script src="{{ url_for('static', filename='scripts/bootstrap.bundle.min.js') }}"></script>
     </head>
+
     <body>
         <div class="container">
-            <nav class="navbar fixed-top navbar-dark navbar-expand-md text-uppercase" style="background-color: red;">
+            <nav class="navbar fixed-top navbar-dark navbar-expand-lg text-uppercase" style="background-color: red;">
 
+                <!-- If user clicks on corendon logo it will direct the user to the home page. -->
                 <a href="{{ url_for('home') }}" class="navbar-brand mb-0 h1">
+                    <!-- Corendon logo. -->
                     <img
                         id="logoimg"
                         class="d-inline-block align-top"
                         src="{{ url_for('static', filename='images/corendon_logo_white.png') }}"/>
 
                 </a>
+                <!-- Hamburger button for phone user to see the navigation bar. -->
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -30,8 +39,10 @@
                     data-target="#navbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Navigation bar. -->
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav">
+                        <!-- Link in navigation bar will only be visible when logged in. -->
                         {% if 'name' in session %}
                         <li class="nav-item active px-2 m-3 rounded">
                             <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
@@ -40,20 +51,23 @@
                         <li class="nav-item active px-2 m-3 rounded">
                             <a class="nav-link active" href="{{ url_for('aboutus') }}">About Us</a>
                         </li>
+                        <!-- Link in navigation bar will only be visible when logged in. -->
                         {% if 'name' in session %}
                         <li class="nav-item active px-2 m-3 rounded">
                             <a class="nav-link active" href="{{ url_for('multimedia') }}">Multimedia</a>
                         </li>
                         {% endif %}
-
-
                     </ul>
+
+                    <!-- Login/Logout on the right of the navigation bar. -->
                     <ul class="nav navbar-nav navbar-right ms-auto">
+                        <!-- Logout only visible when logged in. -->
                         {% if 'name' in session %}
                             <li class="nav-item active px-2 m-3 rounded">
                                 <a class="nav-link active" href="{{ url_for('auth.logout') }}">Logout</a>
                             </li>
                         {% else %}
+                        <!-- Login only visible when NOT logged in. -->
                             <li class="nav-item active px-2 m-3 rounded">
                                 <a class="nav-link active" href="{{ url_for('auth.login') }}">Login</a>
                             </li>
@@ -65,6 +79,7 @@
 
         <section class="content">
             <div class="container">
+                <!-- Content for all the pages can be placed in the block content when the base template is used. -->
                 {% block content %}{% endblock %}
             </div>
         </section>

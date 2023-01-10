@@ -17,7 +17,7 @@ def login():
 
         connectie = mysql.connector.connect(
             host="localhost",
-            database="Corendon",
+            database="Login",
             user="user_database",
             password="Welkom123!"
         )
@@ -43,12 +43,12 @@ def login():
     return render_template('login.html')
 
 
-@bp.before_app_request
-def load_logged_in_user():
-    user_id = session.get('user_id')
-
-
 @bp.route('/logout')
 def logout():
+    try:
+        subprocess.call(["sudo", "ipset", "del", "ip-whitelist", ipaddr])
+    except:
+        session.clear()
+        return redirect(url_for('home'))
     session.clear()
     return redirect(url_for('home'))
