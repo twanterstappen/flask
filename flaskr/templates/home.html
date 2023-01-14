@@ -1,0 +1,57 @@
+<!-- Renders the base template for the basic functions for the page. -->
+{% extends "base.html" %}
+
+<!-- Title for this specific page. -->
+{% block title %}Home{% endblock %}
+
+<!-- Extends the base.html with content for this home page. -->
+{% block content %}
+
+      <!-- Container for the content to go in. -->
+      <div class="homecontainer">
+            <div class="homecontent">
+                  <!-- The name of the user is used to welcome to user on board of this flight. -->
+                  <h1>Welcome on board {{ g.name }}</h1>
+                  <h2>You now have access to the internet</h2>
+                  <br>
+                  <!-- Ticketnumber and flightnumber of the user. -->
+                  <h3>Ticketnumber: {{ g.ticketnumber }}</h3>
+                  <h3>Flightnumber: {{ g.flightnumber }}</h3>
+                  <h3>Destination: {{ g.destination }}</h3>
+                  <br>
+                  <div>
+                  {% if g.destination == 'Netherlands' %}
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/52d135d29/netherlands/" data-label_1="Netherlands" data-label_2="Forecast" data-icons="Climacons Animated" data-days="5" data-theme="pure" data-basecolor="rgba(255, 255, 255, 0)" data-textcolor="#ffffff" data-mooncolor="#a5a5a5" data-cloudcolor="#a5a5a5" >Netherlands Forecast</a>
+                        <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                        </script>
+                  {% elif g.destination == 'Germany' %}
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/51d1710d45/germany/" data-label_1="Germany" data-label_2="Forecast" data-icons="Climacons Animated" data-days="5" data-theme="pure" data-basecolor="rgba(255, 255, 255, 0)" data-textcolor="#ffffff" data-mooncolor="#a5a5a5" data-cloudcolor="#a5a5a5" >Germany Forecast</a>
+                        <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                        </script>
+                  {% elif g.destination == 'Indonesia' %}
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/n0d79113d92/indonesia/" data-label_1="Indonesia" data-label_2="Forecast" data-icons="Climacons Animated" data-days="5" data-theme="pure" data-basecolor="rgba(255, 255, 255, 0)" data-textcolor="#ffffff" data-mooncolor="#a5a5a5" data-cloudcolor="#a5a5a5" >Indonesia Forecast</a>
+                        <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                        </script>
+                  {% elif g.destination == 'United States' %}
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/37d09n95d71/united-states/" data-label_1="United States" data-label_2="Forecast" data-icons="Climacons Animated" data-days="5" data-theme="pure" data-basecolor="rgba(255, 255, 255, 0)" data-textcolor="#ffffff" data-mooncolor="#a5a5a5" data-cloudcolor="#a5a5a5" >United States Forecast</a>
+                        <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                        </script>
+                  {% elif g.destination == 'Austria' %}
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/47d5214d55/austria/" data-label_1="Austria" data-label_2="Forecast" data-icons="Climacons Animated" data-days="5" data-theme="pure" data-basecolor="rgba(255, 255, 255, 0)" data-textcolor="#ffffff" data-mooncolor="#a5a5a5" data-cloudcolor="#a5a5a5" >Austria Forecast</a>
+                        <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                        </script>
+                  </div>
+                  {% endif %}
+                  <!-- Button to go to the multimedia page. -->
+                  <div id="centerbutton">
+                        <button class="btn btn-success btn-lg px-5" onclick="document.location='{{ url_for('multimedia') }}'">Go to multimedia</button>
+                        </div>
+            </div>
+      </div>
+
+{% endblock %}

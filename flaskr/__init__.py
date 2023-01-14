@@ -32,6 +32,8 @@ def create_app(test_config=None):
             # Get the username from the session.
             g.name = session['name']
             g.ticketnumber = session['ticketnumber']
+            g.flightnumber = session['flightnumber']
+            g.destination = session['destination']
             # Show the protected page, with the username.
             return render_template('home.html')
         else:
@@ -49,6 +51,7 @@ def create_app(test_config=None):
 
     @app.route('/multimedia')
     def multimedia():
+        g.destination = session['destination']
         return render_template('multimedia.html')
 
     return app

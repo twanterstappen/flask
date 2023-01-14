@@ -22,17 +22,23 @@ def login():
             password="Welkom123!"
         )
         cursor = connectie.cursor()
-        query = "SELECT name, ticketnumber FROM Login WHERE name = %s and ticketnumber = %s"
+        query = "SELECT CONCAT_WS(' ', Passenger.firstname, Passenger.prefix, Passenger.lastname) as Name, Ticket.ticketnumber, Flight.flightnumber, Flight.destination FROM Ticket " \
+                "INNER JOIN Passenger on ticket.passenger_id = Passenger.id " \
+                "INNER JOIN Flight on ticket.flight_id = Flight.id " \
+                "where CONCAT_WS(' ', Passenger.firstname, Passenger.prefix, Passenger.lastname) = %s and ticketnumber = %s;"
         param = (name, ticketnumber)
         cursor.execute(query, param)
         entry = cursor.fetchone()
         connectie.close()
 
         # check if something returned
+        print(entry)
         if entry:
             ipaddr = request.remote_addr
             session['name'] = name
             session['ticketnumber'] = ticketnumber
+            session['flightnumber'] = entry[2]
+            session['destination'] = entry[3]
             try:
                 subprocess.call(["sudo", "ipset", "add", "ip-whitelist", ipaddr])
             except:
@@ -45,6 +51,7 @@ def login():
 
 @bp.route('/logout')
 def logout():
+    ipaddr = request.remote_addr
     try:
         subprocess.call(["sudo", "ipset", "del", "ip-whitelist", ipaddr])
     except:
