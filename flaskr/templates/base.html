@@ -2,18 +2,23 @@
 <!doctype html>
 
 <html>
-    <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <!-- Link to stylesheet used for everypage. -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main-style.css') }}"/>
+    
+    
+    
 
     <head>
+        <!-- For a mobile-optimized website -->
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
         <!-- Title that will change on every page. -->
         <title>Corendon - {% block title %}Home{% endblock %}</title>
 
-        <!-- Favicon for the page. -->
+        <!-- Favicon (website image) for the page. -->
         <link rel="icon" href="{{ url_for('static', filename='images/corendon_favicon.png') }}">
-        <!-- Link to style for the base template. -->
-        <link href="{{ url_for('static', filename='styles/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Link to stylesheet used for everypage. -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/main-style.css') }}">
+        <!-- Link to bootstrap css/java files. -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}">
         <script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
         <script src="{{ url_for('static', filename='scripts/bootstrap.bundle.min.js') }}"></script>
     </head>
@@ -23,63 +28,100 @@
             <nav class="navbar fixed-top navbar-dark navbar-expand-lg text-uppercase" style="background-color: red;">
 
                 <!-- If user clicks on corendon logo it will direct the user to the home page. -->
-                <a href="{{ url_for('home') }}" class="navbar-brand mb-0 h1">
-                    <!-- Corendon logo. -->
-                    <img
-                        id="logoimg"
-                        class="d-inline-block align-top"
-                        src="{{ url_for('static', filename='images/corendon_logo_white.png') }}"/>
+                <div class="container-fluid">
+                    <a href="{{ url_for('home') }}" class="navbar-brand mb-0 h1">
+                        <!-- Corendon logo. -->
+                        <img
+                            id="logoimg"
+                            class="d-inline-block align-top"
+                            src="{{ url_for('static', filename='images/corendon_logo_white.png') }}"
+                            alt="Logo Corendon"/>
 
-                </a>
-                <!-- Hamburger button for phone user to see the navigation bar. -->
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Navigation bar. -->
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="nav navbar-nav">
-                        <!-- Link in navigation bar will only be visible when logged in. -->
-                        {% if 'name' in session %}
-                        <li class="nav-item active px-2 m-3 rounded">
-                            <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
-                        </li>
-                        {% endif %}
-                        <li class="nav-item active px-2 m-3 rounded">
-                            <a class="nav-link active" href="{{ url_for('aboutus') }}">About Us</a>
-                        </li>
-                        <!-- Link in navigation bar will only be visible when logged in. -->
-                        {% if 'name' in session %}
-                        <li class="nav-item active px-2 m-3 rounded">
-                            <a class="nav-link active" href="{{ url_for('multimedia') }}">Multimedia</a>
-                        </li>
-                        {% endif %}
-                    </ul>
+                    </a>
+                    <!-- Hamburger button for phone user to see the navigation bar. -->
+                    <button 
+                        class="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#navbarSupportedContent" 
+                        aria-controls="navbarSupportedContent" 
+                        aria-expanded="false" 
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Navigation bar. -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav">
+                            <!-- Link in navigation bar will only be visible when logged in. -->
+                            {% if 'name' in session %}
+                            <li class="nav-item px-2 m-3 rounded">
+                                <a class="nav-link" id="{{ 'navactive' if active_page == 'home' }}" href="{{ url_for('home') }}">Home</a>
+                            </li>
+                            {% endif %}
+                            <li class="nav-item px-2 m-3 rounded">
+                                <a class="nav-link" id="{{ 'navactive' if active_page == 'aboutus' }}" href="{{ url_for('aboutus') }}">About Us</a>
+                            </li>
+                            <!-- Link in navigation bar will only be visible when logged in. -->
+                            {% if 'name' in session %}
+                            <li class="nav-item px-2 m-3 rounded">
+                                <a class="nav-link" id="{{ 'navactive' if active_page == 'multimedia' }}" href="{{ url_for('multimedia') }}">Multimedia</a>
+                            </li>
+                            {% endif %}
+                        </ul>
 
-                    <!-- Login/Logout on the right of the navigation bar. -->
-                    <ul class="nav navbar-nav navbar-right ms-auto">
-                        <!-- Logout only visible when logged in. -->
-                        {% if 'name' in session %}
-                            <li class="nav-item active px-2 m-3 rounded">
-                                <a class="nav-link active" href="{{ url_for('auth.logout') }}">Logout</a>
-                            </li>
-                        {% else %}
-                        <!-- Login only visible when NOT logged in. -->
-                            <li class="nav-item active px-2 m-3 rounded">
-                                <a class="nav-link active" href="{{ url_for('auth.login') }}">Login</a>
-                            </li>
-                        {% endif %}
-                    </ul>
+                        <!-- Login/Logout on the right of the navigation bar. -->
+                        <ul class="nav navbar-nav navbar-right ms-auto">
+                            <!-- Logout only visible when logged in. -->
+                            {% if 'name' in session %}
+                                <li class="nav-item px-2 m-3 rounded">
+                                    <a class="nav-link" id="{{ 'navactive' if active_page == 'logout' }}" href="{{ url_for('auth.logout') }}">Logout</a>
+                                </li>
+                            {% else %}
+                            <!-- Login only visible when NOT logged in. -->
+                                <li class="nav-item px-2 m-3 rounded">
+                                    <a class="nav-link" id="{{ 'navactive' if active_page == 'login' }}" href="{{ url_for('auth.login') }}">Login</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
-
+        <div class="flashes">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <svg style="display: none;">
+                        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </symbol>
+                        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </symbol>
+                        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </symbol>
+                    </svg>
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {% if category == "danger" %}
+                            <svg class="bi flex-shrink-0 me-2" width="21" height="21" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        {% elif category == "success" %}
+                            <svg class="bi flex-shrink-0 me-2" width="21" height="21" role="img" aria-label="Danger:"><use xlink:href="#check-circle-fill"/></svg>
+                        {% elif category == "info" or category == "warning" %}
+                            <svg class="bi flex-shrink-0 me-2" width="21" height="21" role="img" aria-label="Danger:"><use xlink:href="#info-fill"/></svg>
+                        {% endif %}
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    
+                {% endif %}
+            {% endwith %}
+        </div>
         <section class="content">
             <div class="container">
                 <!-- Content for all the pages can be placed in the block content when the base template is used. -->
+                
                 {% block content %}{% endblock %}
             </div>
         </section>

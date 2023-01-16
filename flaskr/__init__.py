@@ -1,7 +1,7 @@
 # Imports
 import os
 
-from flask import Flask, g, redirect, render_template, session, url_for
+from flask import Flask, g, redirect, render_template, session, url_for, request, flash
 
 from . import auth
 
@@ -28,19 +28,20 @@ def create_app(test_config=None):
     # Home page after user logged in.
     @app.route('/')
     def home():
+        # Check if user is logged in
         if 'name' in session:
-            # Get the username from the session.
+            # Get the userdata from the session.
             g.name = session['name']
             g.ticketnumber = session['ticketnumber']
             g.flightnumber = session['flightnumber']
             g.destination = session['destination']
-            # Show the protected page, with the username.
+            # Show the protected page.
             return render_template('home.html')
         else:
             # Show the login page
+            flash('Please login first!', 'warning')
             return redirect(url_for('auth.login'))
 
-    # Specific route will return a given html page.
     @app.route('/about-us')
     def aboutus():
         return render_template('about-us.html')
@@ -49,9 +50,21 @@ def create_app(test_config=None):
     def termsofuse():
         return render_template('terms-of-use.html')
 
+    # multimedia page is accessible after user logged in.
     @app.route('/multimedia')
     def multimedia():
-        g.destination = session['destination']
-        return render_template('multimedia.html')
+        # Check if user is logged in
+        if 'name' in session:
+            # Get the userdata from the session.
+            g.name = session['name']
+            g.ticketnumber = session['ticketnumber']
+            g.flightnumber = session['flightnumber']
+            g.destination = session['destination']
+            # Show the protected page.
+            return render_template('multimedia.html')
+        else:
+            # Show the login page
+            flash('Please login first!', 'warning')
+            return redirect(url_for('auth.login'))
 
     return app

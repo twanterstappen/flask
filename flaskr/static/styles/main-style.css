@@ -4,6 +4,22 @@
     user-select: none;
 }
 
+/* Change the color of the text when hovering in the navbar */
+.nav > a:hover{
+    color: white !important;
+}
+
+/* Change the text color of the active page in the navbar*/
+#navactive:not(:hover){
+    color: #e9eb77 !important;
+    border-color: black;
+}
+
+/* Ensures that the navbar text color is white */
+nav .navbar-nav li a{
+    color: white !important;
+}
+
 /* This is the font and style for text in the nav bar. */
 .text-uppercase {
     text-transform: capitalize !important;
@@ -15,6 +31,7 @@
 .nav ul li {
     margin-left: 20px;
     margin-right: 20px;
+
 }
 
 /* This sets the background image and font for all the pages. */
@@ -24,6 +41,11 @@ body{
     background-size: cover;
     z-index: -1;
     background-attachment: fixed;
+}
+
+/* Set the right padding for the flashes. */
+.flashes{
+    padding-top: 30px;
 }
 
 /* This gives padding for all the pages so that all the content won't touch the edges as much. */
@@ -37,13 +59,15 @@ body{
 /* This is the style for the corendon logo image in the nav bar */
 #logoimg{
     width: auto;
-    height: 60px;
+    height: 65px;
     margin-left: 40px;
 }
 
 /* This ensures that when you hover on the links in the nav bar that the background of the link attribute will become yellow. */
 nav ul li:hover{
     background-color: #d4bf00;
+    color: white !important;
+
 }
 
 /* This makes the black background where the about us content is in. */
@@ -246,6 +270,11 @@ nav ul li:hover{
     width: 885px;
     height: 500px;
 }
+/* Style that makes the size of the images in the multimedia page. */
+.multimediacontent img{
+    width: 885px;
+    height: 500px;
+}
 
 /* This makes sure that al the social media links are to the left of the screen. */
 .socialscontent{
@@ -330,6 +359,10 @@ nav ul li:hover{
         width: 800px;
         height: 450px;
     }
+    .multimediacontent img{
+        width: 800px;
+        height: 450px;
+    }
 }
 
 @media screen and (max-width: 1100px){
@@ -348,6 +381,10 @@ nav ul li:hover{
     }
 
     .multimediacontent iframe{
+        width: 580px;
+        height: 326px;
+    }
+    .multimediacontent img{
         width: 580px;
         height: 326px;
     }
@@ -375,6 +412,10 @@ nav ul li:hover{
     }
 
     .multimediacontent iframe{
+        width: 450px;
+        height: 253px;
+    }
+    .multimediacontent img{
         width: 450px;
         height: 253px;
     }
@@ -411,6 +452,10 @@ nav ul li:hover{
         width: 450px;
         height: 253px;
     }
+    .multimediacontent img{
+        width: 450px;
+        height: 253px;
+    }
 }
 
 @media screen and (max-width: 550px){
@@ -420,6 +465,10 @@ nav ul li:hover{
     }
 
     .multimediacontent iframe{
+        width: 360px;
+        height: 204px;
+    }
+    .multimediacontent img{
         width: 360px;
         height: 204px;
     }

@@ -1,5 +1,7 @@
 <!-- Renders the base template for the basic functions for the page. -->
 {% extends "base.html" %}
+<!-- Set page as active. -->
+{% set active_page = "multimedia" %}
 
 <!-- Title for this specific page. -->
 {% block title %}Multimedia{% endblock %}
@@ -12,25 +14,69 @@
         <div class="multimediacontent">
             <h1>Multimedia</h1>
             <!-- Corendon YouTube video. -->
-            {% if g.destination == 'Netherlands' %}
-                <iframe autoplay src="https://www.youtube.com/embed/wAppCTDtW3Y" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% elif g.destination == 'Germany' %}
-                <iframe autoplay src="https://www.youtube.com/embed/IPbzWJNmndY" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% elif g.destination == 'Indonesia' %}
-                <iframe autoplay src="https://www.youtube.com/embed/IwtNFzX0ni8" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% elif g.destination == 'United States' %}
-                <iframe autoplay src="https://www.youtube.com/embed/98H5AN_vfOY" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% elif g.destination == 'Austria' %}
-                <iframe autoplay src="https://www.youtube.com/embed/dKTDQa20IEQ" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% else %}
-                <iframe autoplay src="https://www.youtube.com/embed/F9wESpAW0Nk" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% endif %}
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    {% if g.destination == 'Netherlands' %}
+                        <iframe autoplay src="https://www.youtube.com/embed/wAppCTDtW3Y" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    {% elif g.destination == 'Germany' %}
+                        <iframe autoplay src="https://www.youtube.com/embed/IPbzWJNmndY" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    {% elif g.destination == 'Indonesia' %}
+                        <iframe autoplay src="https://www.youtube.com/embed/IwtNFzX0ni8" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    {% elif g.destination == 'United States' %}
+                        <iframe autoplay src="https://www.youtube.com/embed/98H5AN_vfOY" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    {% elif g.destination == 'Austria' %}
+                        <iframe autoplay src="https://www.youtube.com/embed/dKTDQa20IEQ" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    {% else %}
+                        <iframe autoplay src="https://www.youtube.com/embed/F9wESpAW0Nk" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    {% endif %}
+                  </div>
+                  <div class="carousel-item">
+                    {% if g.destination == 'Netherlands' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Netherlands1.png') }}" alt="Netherlands1">
+                    {% elif g.destination == 'Germany' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Germany1.png') }}" alt="Germany1">
+                    {% elif g.destination == 'Indonesia' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Indonesia1.png') }}" alt="Indonesia1">
+                    {% elif g.destination == 'United States' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Unitedstates1.png') }}" alt="Unitedstates1">
+                    {% elif g.destination == 'Austria' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Austria1.png') }}" alt="Austria1">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='images/destinations/Corendon1.png') }}" alt="Corendon1">
+                    {% endif %}
+                  </div>
+                  <div class="carousel-item">
+                    {% if g.destination == 'Netherlands' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Netherlands2.png') }}" alt="Netherlands2">
+                    {% elif g.destination == 'Germany' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Germany2.png') }}" alt="Germany2">
+                    {% elif g.destination == 'Indonesia' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Indonesia2.png') }}" alt="Indonesia2">
+                    {% elif g.destination == 'United States' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Unitedstates2.png') }}" alt="Unitedstates2">
+                    {% elif g.destination == 'Austria' %}
+                        <img src="{{ url_for('static', filename='images/destinations/Austria2.png') }}" alt="Austria2">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='images/destinations/Corendon2.png') }}" alt="Corendon2">
+                    {% endif %}
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
             <br>
             <!-- Social media links with pictures from the social media platforms for corendon associated social media links. -->
             <div class="socialscontent">

@@ -1,14 +1,16 @@
 <!-- Renders the base template for the basic functions for the page. -->
 {% extends "base.html" %}
+<!-- Set page as active. -->
+{% set active_page = "home" %}
 
 <!-- Title for this specific page. -->
 {% block title %}Home{% endblock %}
 
 <!-- Extends the base.html with content for this home page. -->
 {% block content %}
-
       <!-- Container for the content to go in. -->
       <div class="homecontainer">
+            
             <div class="homecontent">
                   <!-- The name of the user is used to welcome to user on board of this flight. -->
                   <h1>Welcome on board {{ g.name }}</h1>
