@@ -20,8 +20,8 @@ def login():
 
         connectie = mysql.connector.connect(
             host="localhost",
-            database="Login",
-            user="user_database",
+            database="Corendon",
+            user="cp_user",
             password="Welkom123!"
         )
         cursor = connectie.cursor()
